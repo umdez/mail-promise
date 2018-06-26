@@ -25,13 +25,15 @@ function mailService(service, username, pwd)
         }
     };
 
-    function sendMail(to, from, subject, body)
+    function sendMail(from, to, subject, text, html)
     {
+        // Configure the email to send
         let options = {
-            to: to,
             from: from,
+            to: to,
             subject: subject,
-            text: body
+            text: text,
+            html: html
         };
 
         return new Promise(function(resolve, reject)
@@ -39,7 +41,13 @@ function mailService(service, username, pwd)
             nodemailer
                 .createTransport(credentials)
                 .sendMail(options, (err, info) => {
-                    err ? reject(err) : resolve(info.response)
+
+                    if(err) {
+                        reject(err)
+                    }
+                    else {
+                        resolve(info)
+                    }
                 })
         })
     }
@@ -48,3 +56,7 @@ function mailService(service, username, pwd)
         send: sendMail
     }
 }
+
+module.exports = {
+    mailService: mailService,
+};
