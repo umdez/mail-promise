@@ -3,18 +3,14 @@
  *
  * Simplifies the interface for nodemailer and returns a promise
  *
- * usage:
- *
- * import { mailService } from 'backend-tools'
- * var mailer = mailService(service, username, pwd)
- * var info = await mailer.send(to, from, subject, body)
+ * created by sean maxwell Jun25, 2018
  ***************************************************************/
 
 var nodemailer = require('nodemailer');
 var Promise    = require('bluebird');
 
 
-function mailService(service, username, pwd)
+function config(service, username, pwd)
 {
     // Set the mail service
     let credentials = {
@@ -32,12 +28,15 @@ function mailService(service, username, pwd)
             from: from,
             to: to,
             subject: subject,
-            text: text,
-            html: html
+            text: text
         };
 
         return new Promise(function(resolve, reject)
         {
+            if(html) {
+                options.html = html
+            }
+
             nodemailer
                 .createTransport(credentials)
                 .sendMail(options, (err, info) => {
@@ -58,5 +57,5 @@ function mailService(service, username, pwd)
 }
 
 module.exports = {
-    mailService: mailService,
+    config: config,
 };

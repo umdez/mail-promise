@@ -3,19 +3,20 @@ Simplifies interface for nodemailer and returns a promise. Also includes TypeScr
 
 - TypeScript example:
 
-            import { MailService } from 'mail-promise'
+            import * as MailPromise from 'mail-promise'
+            import { Mailer }       from 'mail-promise'
             
             
             class SomeClass
             {
-                private mailer: MailPromise                
+                private mailer: Mailer                
                                 
                 constructor()
                 {
-                    mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+                    mailer = MailPromise.config(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
                 }
                 
-                async foo(to: string, from: string, subject: string, body: string, html?: string): Promise<void> {
+                async sendMail(to: string, from: string, subject: string, body: string, html?: string): Promise<void> {
                 
                     try {
                         let info = await mailer.send(to, from, subject, body, html)
@@ -33,7 +34,7 @@ Simplifies interface for nodemailer and returns a promise. Also includes TypeScr
 
             var mailPromise = require('mail-promise')
             
-            let mailer = mailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+            let mailer = mailPromise.config(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
             
             mailer.send(to, from, subject, body, html)
                     .then(info => {
