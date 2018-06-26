@@ -1,0 +1,32 @@
+{
+  "name": "mail-promise",
+  "version": "1.0.0",
+  "description": "Simplifies interface for nodemailer and returns a promise. Also includes TypeScript definition.",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanpmaxwell/mail-promise.git"
+  },
+  "keywords": [
+    "nodemailer",
+    "promise",
+    "typescript",
+    "types",
+    "email",
+    "mail",
+    "node"
+  ],
+  "author": "sean maxwell",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/seanpmaxwell/mail-promise/issues"
+  },
+  "homepage": "https://github.com/seanpmaxwell/mail-promise#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "nodemailer": "^4.6.7"
+  }
+}
