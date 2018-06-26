@@ -25,7 +25,7 @@ function mailService(service, username, pwd)
         }
     };
 
-    function sendMail(from, to, subject, text, html)
+    function send(from, to, subject, text, html)
     {
         // Configure the email to send
         let options = {
@@ -53,7 +53,7 @@ function mailService(service, username, pwd)
     }
 
     return {
-        send: sendMail
+        send: send
     }
 }
 
