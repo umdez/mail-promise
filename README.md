@@ -34,7 +34,7 @@ Simplifies interface for nodemailer and returns a promise. Also includes TypeScr
 
             var mailPromise = require('mail-promise')
             
-            let mailer = mailPromise.config(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+            var mailer = mailPromise.config(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
             
             mailer.send(to, from, subject, body, html)
                     .then(info => {

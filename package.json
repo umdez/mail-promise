@@ -17,7 +17,9 @@
     "types",
     "email",
     "mail",
-    "node"
+    "node",
+    "mailer",
+    "nodejs"
   ],
   "author": "sean maxwell",
   "license": "GPL-3.0-or-later",

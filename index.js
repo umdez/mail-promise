@@ -35,7 +35,7 @@ function config(service, username, pwd)
         {
             if(html) {
                 options.html = html
-            }
+            };
 
             nodemailer
                 .createTransport(credentials)
