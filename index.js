@@ -10,20 +10,23 @@ var nodemailer = require('nodemailer');
 var Promise    = require('bluebird');
 
 
-function config(service, username, pwd)
+module.exports = function(service, username, pwd)
 {
-    // Set the mail service
-    let credentials = {
-        service: service,
-        auth: {
-            user: username,
-            pass: pwd
-        }
-    };
 
-    function send(from, to, subject, text, html)
+    this.send = function(from, to, subject, text, html)
     {
-        // Configure the email to send
+
+
+        // ******* Configure Settings ******** //
+
+        let credentials = {
+            service: service,
+            auth: {
+                user: username,
+                pass: pwd
+            }
+        };
+
         let options = {
             from: from,
             to: to,
@@ -31,12 +34,14 @@ function config(service, username, pwd)
             text: text
         };
 
+        if(html) options.html = html;
+
+
+
+        // ******* Return the Promise Object ******** //
+
         return new Promise(function(resolve, reject)
         {
-            if(html) {
-                options.html = html
-            };
-
             nodemailer
                 .createTransport(credentials)
                 .sendMail(options, (err, info) => {
@@ -49,13 +54,8 @@ function config(service, username, pwd)
                     }
                 })
         })
-    }
 
-    return {
-        send: send
-    }
-}
+    };
 
-module.exports = {
-    config: config,
+    return this
 };

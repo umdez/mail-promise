@@ -1,22 +1,24 @@
 # mail-promise
-Simplifies interface for nodemailer and returns a promise. Also includes TypeScript definition.
+Simplifies interface for nodemailer and returns a promise. Also includes TypeScript declaration file for type checking.
+
+created by Sean Maxwell June 25, 2018 
 
 - TypeScript example:
 
             import * as MailPromise from 'mail-promise'
-            import { Mailer }       from 'mail-promise'
             
             
             class SomeClass
             {
-                private mailer: Mailer                
+                private mailer: MailPromise                
                                 
                 constructor()
                 {
-                    mailer = MailPromise.config(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+                    mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
                 }
                 
-                async sendMail(to: string, from: string, subject: string, body: string, html?: string): Promise<void> {
+                async sendMail(to: string, from: string, subject: string, body: string, html?: string): Promise<void> 
+                {
                 
                     try {
                         let info = await mailer.send(to, from, subject, body, html)
@@ -32,9 +34,9 @@ Simplifies interface for nodemailer and returns a promise. Also includes TypeScr
   
 - JavaScript example:
 
-            var mailPromise = require('mail-promise')
+            var MailPromise = require('mail-promise')
             
-            var mailer = mailPromise.config(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+            var mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
             
             mailer.send(to, from, subject, body, html)
                     .then(info => {
