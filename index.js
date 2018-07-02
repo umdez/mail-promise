@@ -13,7 +13,7 @@ var Promise    = require('bluebird');
 module.exports = function(service, username, pwd)
 {
 
-    this.send = function(from, to, subject, text, html)
+    this.send = function(to, from, subject, text, html)
     {
 
 
@@ -28,8 +28,8 @@ module.exports = function(service, username, pwd)
         };
 
         let options = {
-            from: from,
             to: to,
+            from: from,
             subject: subject,
             text: text
         };

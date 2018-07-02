@@ -7,7 +7,7 @@
 
 class MailPromise {
     constructor(service: string, username: string, pwd: string);
-    send(from: string, to: string, subject: string, text: string, html?: string): Promise<any>;
+    send(to: string, from: string, subject: string, text: string, html?: string): Promise<any>;
 }
 
 namespace MailPromise {}
