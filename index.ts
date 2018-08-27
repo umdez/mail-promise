@@ -16,7 +16,7 @@ export default class MailPromise
     private username: string
     private pwd: string
 
-    constructor(service: string, username: string, pwd: string) 
+    constructor(service: string, username: string, pwd: string)
     {
         this.service = service
         this.username = username

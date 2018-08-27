@@ -34,7 +34,7 @@ created by Sean Maxwell June 25, 2018
   
 - JavaScript example:
 
-            var MailPromise = require('mail-promise')
+            var MailPromise = require('mail-promise').default
             
             var mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
             
