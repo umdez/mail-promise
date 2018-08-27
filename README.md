@@ -21,7 +21,7 @@ created by Sean Maxwell June 25, 2018
                 {
                 
                     try {
-                        let info = await mailer.send(to, from, subject, body, html) // html param is optional
+                        let info = await this.mailer.send(to, from, subject, body, html) // html param is optional
                         console.log(info.response)
                     }
                     catch(err) {
