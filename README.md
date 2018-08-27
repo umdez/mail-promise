@@ -5,7 +5,7 @@ created by Sean Maxwell June 25, 2018
 
 - TypeScript example:
 
-            import * as MailPromise from 'mail-promise'
+            import MailPromise from 'mail-promise'
             
             
             class SomeClass
