@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "Simplifies interface for nodemailer and returns a promise. Also includes TypeScript definition.",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "none"
   },

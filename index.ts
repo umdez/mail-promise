@@ -1,44 +1,44 @@
 /****************************************************************
- *                         MailService
+ *                         MailPromise
  *
  * Simplifies the interface for nodemailer and returns a promise
  *
- * created by sean maxwell Jun25, 2018
+ * created by Sean Maxwell Jun 25, 2018
  ***************************************************************/
 
-var nodemailer = require('nodemailer');
-var Promise    = require('bluebird');
+import * as nodemailer from 'nodemailer'
+import * as Promise    from 'bluebird'
 
 
-module.exports = function(service, username, pwd)
+export default class MailPromise
 {
+    private service: string
+    private username: string
+    private pwd: string
 
-    this.send = function(from, to, subject, text, html)
+    constructor(service: string, username: string, pwd: string)
     {
+        this.service = service
+        this.username = username
+        this.pwd = pwd
+    }
 
-
-        // ******* Configure Settings ******** //
-
+    public send(to: string, from: string, subject: string, text:string, html?: string)
+    {
         let credentials = {
-            service: service,
+            service: this.service,
             auth: {
-                user: username,
-                pass: pwd
+                user: this.username,
+                pass: this.pwd
             }
-        };
+        }
 
         let options = {
             from: from,
             to: to,
             subject: subject,
             text: text
-        };
-
-        if(html) options.html = html;
-
-
-
-        // ******* Return the Promise Object ******** //
+        }
 
         return new Promise(function(resolve, reject)
         {
@@ -54,8 +54,5 @@ module.exports = function(service, username, pwd)
                     }
                 })
         })
-
-    };
-
-    return this
-};
+    }
+}
