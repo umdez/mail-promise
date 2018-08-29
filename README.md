@@ -3,6 +3,11 @@ Simplifies interface for nodemailer and returns a promise. Also includes TypeScr
 
 created by Sean Maxwell June 25, 2018 
 
+
+<br>
+
+
+
 - TypeScript example:
 
 ```typescript
@@ -31,6 +36,8 @@ class SomeClass
     }
 }
 ```            
+
+<br>
             
   
 - JavaScript example:
