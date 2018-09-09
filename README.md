@@ -11,7 +11,7 @@ created by Sean Maxwell June 25, 2018
 - TypeScript example:
 
 ```typescript
-import MailPromise from 'mail-promise'
+import { MailPromise } from 'mail-promise'
 
 
 class SomeClass
@@ -43,7 +43,7 @@ class SomeClass
 - JavaScript example:
 
 ```JavaScript
-var MailPromise = require('mail-promise')
+var MailPromise = require('./index').MailPromise
 
 var mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
 
