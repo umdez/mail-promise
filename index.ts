@@ -10,7 +10,7 @@ import * as nodemailer from 'nodemailer'
 import * as Promise    from 'bluebird'
 
 
-export default class MailPromise
+export class MailPromise
 {
     private service: string
     private username: string
@@ -33,11 +33,15 @@ export default class MailPromise
             }
         }
 
-        let options = {
+        let options: any = {
             to: to,
             from: from,
             subject: subject,
             text: text
+        }
+
+        if(html) {
+            options.html = html
         }
 
         return new Promise(function(resolve, reject)

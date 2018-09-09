@@ -43,7 +43,7 @@ class SomeClass
 - JavaScript example:
 
 ```JavaScript
-var MailPromise = require('mail-promise').default
+var MailPromise = require('mail-promise')
 
 var mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
 
