@@ -1,7 +1,7 @@
 {
   "name": "mail-promise",
-  "version": "1.1.4",
-  "description": "Simplifies interface for nodemailer and returns a promise. Also includes TypeScript definition.",
+  "version": "1.1.5",
+  "description": "Simplifies interface for nodemailer and returns a promise. Also includes TypeScript definition file.",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -23,7 +23,7 @@
     "nodejs"
   ],
   "author": "sean maxwell",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/seanpmaxwell/mail-promise/issues"
   },

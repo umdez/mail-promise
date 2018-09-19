@@ -1,5 +1,6 @@
 # mail-promise
-Simplifies interface for nodemailer and returns a promise. Also includes TypeScript declaration file for type checking.
+Simplifies interface for nodemailer and returns a promise. Also includes TypeScript declaration file 
+for type checking.
 
 created by Sean Maxwell June 25, 2018 
 
