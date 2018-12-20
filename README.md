@@ -24,11 +24,11 @@ class SomeClass
         mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
     }
     
-    async sendMail(to: string, from: string, subject: string, body: string, html?: string): Promise<void> 
+    async sendMail(to: string, from: string, subject: string, body: string, html?: string, attachments?: Array<any>): Promise<void> 
     {
     
         try {
-            let info = await this.mailer.send(to, from, subject, body, html) // html param is optional
+            let info = await this.mailer.send(to, from, subject, body, html, attachments) // html param is optional
             console.log(info.response)
         }
         catch(err) {

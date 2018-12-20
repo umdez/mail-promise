@@ -25,10 +25,11 @@ export class MailPromise
             }
         }
 
-        this._mailer = nodemailer.createTransport(credentials)
+        this._mailer = nodemailer.createTransport(credentials);
     }
 
-    public send(to: string, from: string, subject: string, text: string, html?: string)
+    public send(to: string, from: string, subject: string, text: string, html?: string,
+                attachments?: Array<any>)
     {
         let options: any = {
             to: to,
@@ -37,20 +38,19 @@ export class MailPromise
             text: text
         }
 
-        if(html) {
-            options.html = html
+        if (html) {
+            options.html = html;
+        }
+
+        if (attachments) {
+            options.attachments = attachments;
         }
 
         return new Promise((resolve, reject) => {
 
             this._mailer.sendMail(options, (err, info) => {
 
-                if(err) {
-                    reject(err)
-                }
-                else {
-                    resolve(info)
-                }
+                err ? reject(err) : resolve(info);
             })
         })
     }
