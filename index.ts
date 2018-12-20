@@ -8,31 +8,28 @@
 
 import * as nodemailer from 'nodemailer'
 import * as Promise    from 'bluebird'
+import * as Mail       from 'nodemailer/lib/mailer'
 
 
 export class MailPromise
 {
-    private service: string
-    private username: string
-    private pwd: string
+    private readonly _mailer: Mail
 
     constructor(service: string, username: string, pwd: string)
     {
-        this.service = service
-        this.username = username
-        this.pwd = pwd
-    }
-
-    public send(to: string, from: string, subject: string, text:string, html?: string)
-    {
         let credentials = {
-            service: this.service,
+            service: service,
             auth: {
-                user: this.username,
-                pass: this.pwd
+                user: username,
+                pass: pwd
             }
         }
 
+        this._mailer = nodemailer.createTransport(credentials)
+    }
+
+    public send(to: string, from: string, subject: string, text: string, html?: string)
+    {
         let options: any = {
             to: to,
             from: from,
@@ -44,19 +41,17 @@ export class MailPromise
             options.html = html
         }
 
-        return new Promise(function(resolve, reject)
-        {
-            nodemailer
-                .createTransport(credentials)
-                .sendMail(options, (err, info) => {
+        return new Promise((resolve, reject) => {
 
-                    if(err) {
-                        reject(err)
-                    }
-                    else {
-                        resolve(info)
-                    }
-                })
+            this._mailer.sendMail(options, (err, info) => {
+
+                if(err) {
+                    reject(err)
+                }
+                else {
+                    resolve(info)
+                }
+            })
         })
     }
 }
