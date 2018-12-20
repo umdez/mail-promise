@@ -26,7 +26,6 @@ class SomeClass
     
     async sendMail(to: string, from: string, subject: string, body: string, html?: string, attachments?: Array<any>): Promise<void> 
     {
-    
         try {
             let info = await this._mailer.send(to, from, subject, body, html, attachments); // html and attachments params are optional
             console.log(info.response);
