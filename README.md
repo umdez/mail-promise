@@ -17,22 +17,21 @@ import { MailPromise } from 'mail-promise'
 
 class SomeClass
 {
-    private mailer: MailPromise                
+    private readonly _mailer: MailPromise                
                     
     constructor()
     {
-        mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+        this._mailer = new MailPromise(service, username, pwd); // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
     }
     
     async sendMail(to: string, from: string, subject: string, body: string, html?: string, attachments?: Array<any>): Promise<void> 
     {
     
         try {
-            let info = await this.mailer.send(to, from, subject, body, html, attachments) // html param is optional
-            console.log(info.response)
-        }
-        catch(err) {
-            console.error(err)
+            let info = await this._mailer.send(to, from, subject, body, html, attachments); // html and attachments params are optional
+            console.log(info.response);
+        } catch (err) {
+            console.error(err);
         }
     }
 }
