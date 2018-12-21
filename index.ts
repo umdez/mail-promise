@@ -10,18 +10,21 @@ import * as nodemailer from 'nodemailer'
 import * as Promise    from 'bluebird'
 import * as Mail       from 'nodemailer/lib/mailer'
 
+const SERVICE = process.env.MAILPROMISESERVICE;
+const USER = process.env.MAILPROMISEUSER;
+const PWD = process.env.MAILPROMISEPWD;
 
 export class MailPromise
 {
     private readonly _mailer: Mail
 
-    constructor(service: string, username: string, pwd: string)
+    constructor(service?: string, username?: string, pwd?: string)
     {
         let credentials = {
-            service: service,
+            service: service || SERVICE,
             auth: {
-                user: username,
-                pass: pwd
+                user: username || USER,
+                pass: pwd || PWD
             }
         }
 
