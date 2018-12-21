@@ -36,7 +36,7 @@ class SomeClass
                     
     constructor()
     {
-        this._mailer = new MailPromise(service, username, pwd); // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+        this._mailer = new MailPromise('Gmail', 'example@gmail.com', 'Password@1');
         // or this._mailer = new MailPromise() // if using environment variables
     }
     
