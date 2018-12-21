@@ -1,6 +1,8 @@
 # mail-promise
 Simplifies interface for nodemailer and returns a promise. Also includes TypeScript declaration file 
-for type checking.
+for type checking. Credentials for the email service can be passed in the `MailPromise` class constructor
+or through the environment variables. Setting the credentials from the environment variables is useful
+for when you want to use a mail service in multiple projects but not having them exposed.
 
 created by Sean Maxwell June 25, 2018 
 

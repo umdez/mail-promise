@@ -14,6 +14,7 @@ const SERVICE = process.env.MAILPROMISESERVICE;
 const USER = process.env.MAILPROMISEUSER;
 const PWD = process.env.MAILPROMISEPWD;
 
+
 export class MailPromise
 {
     private readonly _mailer: Mail
