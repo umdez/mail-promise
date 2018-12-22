@@ -32,7 +32,7 @@ import { MailPromise } from 'mail-promise'
 
 class SomeClass
 {
-    private readonly _mailer: MailPromise                
+    private readonly _mailer: MailPromise;                
                     
     constructor()
     {
@@ -58,16 +58,16 @@ class SomeClass
 - JavaScript example:
 
 ```JavaScript
-var MailPromise = require('mail-promise').MailPromise
+var MailPromise = require('mail-promise').MailPromise;
 
-var mailer = new MailPromise(service, username, pwd) // i.e. 'Gmail', 'example@gmail.com', 'Password@1'
+var mailer = new MailPromise('Gmail', 'example@gmail.com', 'Password@1'); 
 
 mailer.send(to, from, subject, body, html)
         .then(info => {
-            console.log(info.response)
+            console.log(info.response);
         })
         .catch(err => {
-            console.error(err)
+            console.error(err);
         })
 ```
 

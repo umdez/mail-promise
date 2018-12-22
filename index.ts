@@ -10,24 +10,20 @@ import * as nodemailer from 'nodemailer'
 import * as Promise    from 'bluebird'
 import * as Mail       from 'nodemailer/lib/mailer'
 
-const SERVICE = process.env.MAILPROMISESERVICE;
-const USER = process.env.MAILPROMISEUSER;
-const PWD = process.env.MAILPROMISEPWD;
-
 
 export class MailPromise
 {
-    private readonly _mailer: Mail
+    private readonly _mailer: Mail;
 
     constructor(service?: string, username?: string, pwd?: string)
     {
         let credentials = {
-            service: service || SERVICE,
+            service: service || process.env.MAILPROMISESERVICE,
             auth: {
-                user: username || USER,
-                pass: pwd || PWD
+                user: username || process.env.MAILPROMISEUSER,
+                pass: pwd || process.env.MAILPROMISEPWD
             }
-        }
+        };
 
         this._mailer = nodemailer.createTransport(credentials);
     }
@@ -40,7 +36,7 @@ export class MailPromise
             from: from,
             subject: subject,
             text: text
-        }
+        };
 
         if (html) {
             options.html = html;
