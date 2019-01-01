@@ -6,9 +6,9 @@
  * created by Sean Maxwell Jun 25, 2018
  ***************************************************************/
 
-import * as nodemailer from 'nodemailer'
-import * as Promise    from 'bluebird'
-import * as Mail       from 'nodemailer/lib/mailer'
+import * as nodemailer from 'nodemailer';
+import * as Promise from 'bluebird';
+import * as Mail from 'nodemailer/lib/mailer';
 
 
 export class MailPromise
