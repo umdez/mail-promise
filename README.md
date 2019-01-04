@@ -27,23 +27,24 @@ created by Sean Maxwell June 25, 2018
 - TypeScript example:
 
 ```typescript
-import { MailPromise } from 'mail-promise'
+import MailPromise from 'mail-promise';
 
 
-class SomeClass
-{
+class SomeClass {
+    
     private readonly _mailer: MailPromise;                
                     
-    constructor()
-    {
+    constructor() {
         this._mailer = new MailPromise('Gmail', 'example@gmail.com', 'Password@1');
-        // or this._mailer = new MailPromise() // if using environment variables
+        // or this._mailer = new MailPromise(); // if using environment variables
     }
     
-    async sendMail(to: string, from: string, subject: string, body: string, html?: string, attachments?: Array<any>): Promise<void> 
-    {
+    async sendMail(to: string, from: string, subject: string, body: string, html?: string, 
+                   attachments?: Array<any>): Promise<void> {
+        
         try {
-            let info = await this._mailer.send(to, from, subject, body, html, attachments); // html and attachments params are optional
+            // html and attachments params are optional
+            let info = await this._mailer.send(to, from, subject, body, html, attachments); 
             console.log(info.response);
         } catch (err) {
             console.error(err);
@@ -58,9 +59,10 @@ class SomeClass
 - JavaScript example:
 
 ```JavaScript
-var MailPromise = require('mail-promise').MailPromise;
+var MailPromise = require('mail-promise').default;
 
 var mailer = new MailPromise('Gmail', 'example@gmail.com', 'Password@1'); 
+
 
 mailer.send(to, from, subject, body, html)
         .then(info => {

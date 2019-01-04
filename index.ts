@@ -7,16 +7,16 @@
  ***************************************************************/
 
 import * as nodemailer from 'nodemailer';
-import * as Promise from 'bluebird';
-import * as Mail from 'nodemailer/lib/mailer';
+import * as Promise    from 'bluebird';
+import * as Mail       from 'nodemailer/lib/mailer';
 
 
-export class MailPromise
-{
+class MailPromise {
+
     private readonly _mailer: Mail;
 
-    constructor(service?: string, username?: string, pwd?: string)
-    {
+    constructor(service?: string, username?: string, pwd?: string) {
+
         let credentials = {
             service: service || process.env.MAILPROMISESERVICE,
             auth: {
@@ -29,8 +29,8 @@ export class MailPromise
     }
 
     public send(to: string, from: string, subject: string, text: string, html?: string,
-                attachments?: Array<any>)
-    {
+                attachments?: Array<any>) {
+
         let options: any = {
             to: to,
             from: from,
@@ -55,3 +55,5 @@ export class MailPromise
         })
     }
 }
+
+export default MailPromise;
