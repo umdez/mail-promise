@@ -7,8 +7,8 @@
  ***************************************************************/
 
 import * as nodemailer from 'nodemailer';
-import * as Promise    from 'bluebird';
-import * as Mail       from 'nodemailer/lib/mailer';
+import * as Promise from 'bluebird';
+import * as Mail from 'nodemailer/lib/mailer';
 
 
 class MailPromise {
