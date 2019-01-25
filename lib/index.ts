@@ -16,6 +16,7 @@ class MailPromise {
 
     private readonly _mailer: Mail;
 
+
     constructor(service?: string, username?: string, pwd?: string) {
 
         let credentials = {
@@ -28,6 +29,7 @@ class MailPromise {
 
         this._mailer = nodemailer.createTransport(credentials);
     }
+
 
     public send(to: string, from: string, subject: string, text: string, html?: string,
                 attachments?: Array<any>): Promise<Error | null, SentMessageInfo> {
