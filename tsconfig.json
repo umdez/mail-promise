@@ -6,6 +6,7 @@
     "baseUrl": "./",
     "removeComments": true,
     "experimentalDecorators": true,
+    "declaration": true,
     "noImplicitAny": true,
     "target": "es5",
     "emitDecoratorMetadata": true,
