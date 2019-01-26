@@ -1,6 +1,6 @@
 {
   "name": "mail-promise",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Simplifies interface for nodemailer and returns a promise. Also includes TypeScript definition file.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -29,9 +29,7 @@
   },
   "homepage": "https://github.com/seanpmaxwell/mail-promise#readme",
   "dependencies": {
-    "nodemailer": "^4.6.7"
-  },
-  "devDependencies": {
+    "nodemailer": "^4.6.7",
     "@types/nodemailer": "^4.6.5"
   }
 }
