@@ -7,9 +7,8 @@
  ***************************************************************/
 
 import * as nodemailer from 'nodemailer';
-import * as Promise from 'bluebird';
 import * as Mail from 'nodemailer/lib/mailer';
-import { SentMessageInfo } from "nodemailer";
+import { SentMessageInfo } from 'nodemailer';
 
 
 class MailPromise {
@@ -32,7 +31,7 @@ class MailPromise {
 
 
     public send(to: string, from: string, subject: string, text: string, html?: string,
-                attachments?: Array<any>): Promise<Error | null, SentMessageInfo> {
+                attachments?: Array<any>): Promise<Error | SentMessageInfo> {
 
         let options: any = {
             to: to,
