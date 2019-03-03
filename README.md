@@ -1,4 +1,5 @@
-# mail-promise NOTE: no longer supported. nodemailer now returns a promise and supports typings. 
+# mail-promise 
+## NOTE: no longer supported. nodemailer now returns a promise and supports typings. 
 Simplifies the interface for nodemailer and returns a promise. Also includes TypeScript declaration file 
 for type checking. Credentials for the email service can be passed in the `MailPromise` class constructor
 or through the environment variables. Setting the credentials from the environment variables is useful
